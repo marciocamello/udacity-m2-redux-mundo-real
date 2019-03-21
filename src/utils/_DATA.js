@@ -17,7 +17,7 @@ let users = {
     avatarURL: "https://tylermcginnis.com/would-you-rather/dan.jpg",
     tweets: ['5w6k1n34dkp1x29cuzn2zn', 'czpa59mg577x1oo45cup0d', 'omdbjl68fxact38hk7ypy6', '3km0v4hf1ps92ajf4z2ytg', 'njv20mq7jsxa6bgsqc97', 'sfljgka8pfddbcer8nuxv', 'r0xu2v1qrxa6ygtvf2rkjw'],
   }
-}
+};
 
 let tweets = {
   "8xf0y6ziyjabvozdd253nd": {
@@ -200,7 +200,7 @@ let tweets = {
     replyingTo: "6h5ims9iks66d4m7kqizmv",
     replies: [],
   },
-}
+};
 
 export function _getUsers () {
   return new Promise((res, rej) => {
@@ -225,7 +225,7 @@ export function _saveLikeToggle ({ id, hasLiked, authedUser }) {
             ? tweets[id].likes.filter((uid) => uid !== authedUser)
             : tweets[id].likes.concat([authedUser])
         }
-      }
+      };
 
       res()
     }, 500)
@@ -254,13 +254,13 @@ export function _saveTweet ({ text, author, replyingTo }) {
       text,
       author,
       replyingTo
-    })
+    });
 
     setTimeout(() => {
       tweets = {
         ...tweets,
         [formattedTweet.id]: formattedTweet,
-      }
+      };
 
       users = {
         ...users,
@@ -268,7 +268,7 @@ export function _saveTweet ({ text, author, replyingTo }) {
           ...users[author],
           tweets: users[author].tweets.concat([formattedTweet.id])
         }
-      }
+      };
 
       res(formattedTweet)
     }, 1000)
